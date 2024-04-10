@@ -1,10 +1,11 @@
 'use server'
 
 export async function createInvoice(formData: FormData) {
-    const rawFromData = {
-        customerID: formData.get('customerId'),
+    const rawFormData = {
+        customerId: formData.get('customerId'),
         amount: formData.get('amount'),
-        status: formData.get('status')
+        status: formData.get('status'),
     };
-    console.log(rawFromData)
+    // Test it out:
+    console.log(rawFormData);
 }
