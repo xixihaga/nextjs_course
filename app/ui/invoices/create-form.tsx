@@ -124,7 +124,8 @@ export default function Form({
                 </label>
               </div>
             </div>
-            <div id="status-error" aria-live="polite" aria-atomic="true">
+          </div>
+          <div id="status-error" aria-live="polite" aria-atomic="true">
               {state.errors?.status &&
                 state.errors.status.map((error: string) => (
                   <p className="mt-2 text-sm text-red-500" key={error}>
@@ -132,7 +133,6 @@ export default function Form({
                   </p>
                 ))}
             </div>
-          </div>
         </fieldset>
       </div>
       <div className="mt-6 flex justify-end gap-4">
