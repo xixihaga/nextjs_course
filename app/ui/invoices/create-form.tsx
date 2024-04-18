@@ -21,7 +21,7 @@ export default function Form({
   const [state, dispatch] = useFormState(createInvoice, initialState);
   return (
     <form action={dispatch}>
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
+      <div className="rounded-md bg-gray-50 p-4 md:p-6" aria-describedby="fields-error">
         {/* Customer Name */}
         <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
@@ -126,14 +126,21 @@ export default function Form({
             </div>
           </div>
           <div id="status-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.status &&
-                state.errors.status.map((error: string) => (
-                  <p className="mt-2 text-sm text-red-500" key={error}>
-                    {error}
-                  </p>
-                ))}
-            </div>
+            {state.errors?.status &&
+              state.errors.status.map((error: string) => (
+                <p className="mt-2 text-sm text-red-500" key={error}>
+                  {error}
+                </p>
+              ))}
+          </div>
         </fieldset>
+      </div>
+      <div id="fields-error" aria-live="polite" aria-atomic="true">
+        {
+          <p className="mt-2 text-sm text-red-500" key={state.message}>
+            {state.message}
+          </p>
+        }
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
